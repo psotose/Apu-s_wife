@@ -1,0 +1,32 @@
+<%= form_with(model: breastfeed, local: true) do |form| %>
+  <% if breastfeed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(breastfeed.errors.count, "error") %> prohibited this breastfeed from being saved:</h2>
+
+      <ul>
+      <% breastfeed.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :volume %>
+    <%= form.text_field :volume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :feed_time %>
+    <%= form.number_field :feed_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :baby_id %>
+    <%= form.select(:baby_id, options_for_select(@babies_array), prompt: "Seleccione bebé") %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

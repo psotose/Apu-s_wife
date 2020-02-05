@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @baby.name %><br>
+</p>
+  <strong>quantity of times fed today:</strong>
+  <%= @baby.amount_times_today %><br>
+  <strong>last time:</strong>
+  <%= time_ago_in_words(@baby.breastfeeds.last.created_at) %><br>
+   <strong>volumen today:</strong>
+  <%= @baby.feed_volume_today %><br>
+  <strong>time breeding today :</strong>
+   <%= @baby.time_feeding_today %><br>
+
+<%= link_to 'Edit', edit_baby_path(@baby) %> |
+<%= link_to 'Back', babies_path %>
